@@ -38,6 +38,8 @@ class Assets {
 
   static const String imagesRunway = "assets/images/Runway.svg";
 
+  static const String imagesVideo = "assets/images/video.mp4";
+
   static const String imagesWomen = "assets/images/women.png";
 }
 

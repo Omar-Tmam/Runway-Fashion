@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:runway_app/Core/utils/assets.dart';
 import 'package:runway_app/Features/home_view/presentation/views/widgets/custom_appbar.dart';
+import 'package:runway_app/Features/home_view/presentation/views/widgets/mobile_home_body.dart';
 
 class MobileHome extends StatelessWidget {
   const MobileHome({super.key});
@@ -9,6 +10,7 @@ class MobileHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppbar(prefix: Assets.imagesMenu, suffix: Assets.imagesBell, title: 'Runway'),
+      body: MobileHomeBody(),
     );
   }
 }
