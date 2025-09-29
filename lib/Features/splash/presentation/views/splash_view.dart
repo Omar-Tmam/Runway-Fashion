@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
-import 'package:go_router/go_router.dart';
 import 'package:runway_app/Core/utils/assets.dart';
 import 'package:runway_app/Features/splash/presentation/views/widgets/line_animation.dart';
 
@@ -15,9 +14,7 @@ class SplashView extends StatefulWidget {
 class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
-    Future.delayed(Duration(milliseconds: 800), () {
-    
-    });
+    Future.delayed(Duration(milliseconds: 800), () {});
     super.initState();
   }
 
