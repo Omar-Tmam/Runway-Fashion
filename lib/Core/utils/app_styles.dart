@@ -23,7 +23,7 @@ abstract class AppStyles {
   static TextStyle styleSemiBold10(BuildContext context) {
     return TextStyle(
       color: Theme.of(context).textTheme.bodyLarge?.color,
-      fontSize: getResponsiveFontSize(context, fontSize: 10),
+      fontSize: getResponsiveFontSize(context, fontSize: 18),
       fontFamily: 'Ubuntu',
       fontWeight: FontWeight.w600,
     );
@@ -32,7 +32,7 @@ abstract class AppStyles {
   static TextStyle styleMedium14(BuildContext context) {
     return TextStyle(
       color: Theme.of(context).textTheme.bodyLarge?.color,
-      fontSize: getResponsiveFontSize(context, fontSize: 14),
+      fontSize: getResponsiveFontSize(context, fontSize: 22),
       fontFamily: 'Ubuntu',
       fontWeight: FontWeight.w500,
     );
@@ -41,7 +41,7 @@ abstract class AppStyles {
   static TextStyle styleBold16(BuildContext context) {
     return TextStyle(
       color: const Color(0xFF5A5555),
-      fontSize: getResponsiveFontSize(context, fontSize: 16),
+      fontSize: getResponsiveFontSize(context, fontSize: 24),
       fontFamily: 'Ubuntu',
       fontWeight: FontWeight.w700,
     );
@@ -50,7 +50,7 @@ abstract class AppStyles {
   static TextStyle styleBold20(BuildContext context) {
     return TextStyle(
       color: const Color(0xFF5A5555),
-      fontSize: getResponsiveFontSize(context, fontSize: 20),
+      fontSize: getResponsiveFontSize(context, fontSize: 28),
       fontFamily: 'Ubuntu',
       fontWeight: FontWeight.w700,
     );
