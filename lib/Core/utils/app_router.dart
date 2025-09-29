@@ -4,7 +4,7 @@ import 'package:runway_app/Features/splash/presentation/views/splash_view.dart';
 
 abstract class AppRouter {
   static const kSplash = '/';
-  static const kHomeView = 'homeView';
+  static const kHomeView = '/homeView';
   static final router = GoRouter(routes: [
     GoRoute(
       path: kSplash,

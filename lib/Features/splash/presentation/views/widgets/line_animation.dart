@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 class LineAnimation extends StatefulWidget {
   final Widget child;
   final Duration duration;
-  const LineAnimation({super.key, required this.child, this.duration = const Duration(milliseconds: 800)});
+  const LineAnimation(
+      {super.key, required this.child, this.duration = const Duration(milliseconds: 700)});
 
   @override
   State<LineAnimation> createState() => _LineAnimationState();
