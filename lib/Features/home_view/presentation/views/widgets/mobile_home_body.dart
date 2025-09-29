@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:runway_app/Core/utils/app_styles.dart';
+import 'package:runway_app/Core/utils/assets.dart';
+import 'package:runway_app/Features/home_view/data/models/category_model.dart';
 import 'package:runway_app/Features/home_view/presentation/views/widgets/custom_video_player.dart';
 
 class MobileHomeBody extends StatelessWidget {
@@ -19,6 +21,13 @@ class MobileHomeBody extends StatelessWidget {
 
 class Categories extends StatelessWidget {
   const Categories({super.key});
+  static final List<CategoryModel> categories = [
+    CategoryModel(image: Assets.imagesWomen, name: 'Women'),
+    CategoryModel(image: Assets.imagesMen, name: 'Men'),
+    CategoryModel(image: Assets.imagesHome, name: 'Home'),
+    CategoryModel(image: Assets.imagesKids, name: 'Kids'),
+    CategoryModel(image: Assets.imagesDeals, name: 'Deals'),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +44,33 @@ class Categories extends StatelessWidget {
             Text(
               'Categories',
               style: AppStyles.styleMedium14(context),
+            ),
+            Gap(10),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: List.generate(categories.length, (index) {
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        children: [
+                          Image.asset(
+                            categories[index].image,
+                            width: 75,
+                          ),
+                          Gap(10),
+                          Text(
+                            categories[index].name,
+                            style: AppStyles.styleMedium14(context),
+                          )
+                        ],
+                      ),
+                    );
+                  }),
+                ),
+              ),
             )
           ],
         ),
