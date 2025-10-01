@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:runway_app/Core/utils/assets.dart';
+import 'package:runway_app/Features/category_view/data/models/category_model.dart';
 import 'package:runway_app/Features/category_view/presentation/views/widgets/sort_by_section.dart';
 
 class MobileCategoryBody extends StatelessWidget {
@@ -18,7 +19,7 @@ class MobileCategoryBody extends StatelessWidget {
 
 class CategoriesGridView extends StatelessWidget {
   const CategoriesGridView({super.key});
-  
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -34,7 +35,7 @@ class CategoriesGridView extends StatelessWidget {
 
 class CategoryItem extends StatelessWidget {
   const CategoryItem({super.key});
-
+  static final List<MenModel> models = [];
   @override
   Widget build(BuildContext context) {
     return Column(
