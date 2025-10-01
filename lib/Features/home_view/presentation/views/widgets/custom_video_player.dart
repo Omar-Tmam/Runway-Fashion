@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:runway_app/Core/utils/assets.dart';
-import 'package:media_kit/media_kit.dart';
-import 'package:media_kit_video/media_kit_video.dart';
+import 'package:video_player/video_player.dart';
 
 class CustomVideoPlayer extends StatefulWidget {
   const CustomVideoPlayer({super.key});
@@ -11,31 +10,21 @@ class CustomVideoPlayer extends StatefulWidget {
 }
 
 class _CustomVideoPlayerState extends State<CustomVideoPlayer> {
-  late final Player _player;
-  late final VideoController _controller;
-
+  late VideoPlayerController _controller;
   @override
   void initState() {
+    _controller = VideoPlayerController.asset(Assets.imagesVideo)
+      ..initialize().then((_) {
+        setState(() {
+          _controller.play();
+        });
+      })
+      ..setLooping(true);
     super.initState();
-    _player = Player();
-    _controller = VideoController(_player);
-    
-    _player.open(Media('asset:///${Assets.imagesVideo}'));
-    _player.setPlaylistMode(PlaylistMode.loop);
-    _player.play();
-  }
-
-  @override
-  void dispose() {
-    _player.dispose();
-    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Video(
-      controller: _controller,
-      fit: BoxFit.contain,
-    );
+    return AspectRatio(aspectRatio: _controller.value.aspectRatio, child: VideoPlayer(_controller));
   }
 }
