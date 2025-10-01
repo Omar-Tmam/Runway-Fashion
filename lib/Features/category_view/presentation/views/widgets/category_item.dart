@@ -17,7 +17,7 @@ class CategoryItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => context.push(AppRouter.kDetailsView,extra: menModel),
+      onTap: () => context.push(AppRouter.kDetailsView, extra: menModel),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -36,6 +36,8 @@ class CategoryItem extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 14),
                   child: Image.asset(
+                    fit: BoxFit.fitHeight,
+                    height: 250,
                     menModel.image,
                   ),
                 ),

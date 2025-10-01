@@ -3,9 +3,12 @@ import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:runway_app/Core/utils/assets.dart';
 import 'package:runway_app/Core/widgets/custom_appbar.dart';
+import 'package:runway_app/Features/category_view/data/models/men_model.dart';
+import 'package:runway_app/Features/details_view/presentation/views/widgets/mobile_details_body.dart';
 
 class MobileDetailsView extends StatelessWidget {
-  const MobileDetailsView({super.key});
+  const MobileDetailsView({super.key, required this.menModel});
+  final MenModel menModel;
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +18,7 @@ class MobileDetailsView extends StatelessWidget {
               InkWell(onTap: () => context.pop(), child: SvgPicture.asset(Assets.imagesArrowLeft)),
           suffix: Assets.imagesBag,
           title: 'Men'),
+      body: MobileDetailsBody(menModel: menModel),
     );
   }
 }
