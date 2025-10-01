@@ -3,8 +3,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:runway_app/Core/utils/app_styles.dart';
 
 class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppbar({super.key, required this.prefix, required this.suffix, required this.title});
-  final String prefix, suffix, title;
+  const CustomAppbar({super.key, required this.widget, required this.suffix, required this.title});
+  final String suffix, title;
+  final Widget widget;
   @override
   Size get preferredSize => Size.fromHeight(80);
   @override
@@ -16,10 +17,7 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          SvgPicture.asset(
-            prefix,
-            width: 24,
-          ),
+          widget,
           Text(
             title,
             style: AppStyles.styleBold20(context),
