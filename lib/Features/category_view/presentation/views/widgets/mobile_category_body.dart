@@ -1,10 +1,16 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
+import 'package:runway_app/Features/category_view/presentation/views/widgets/sort_by_section.dart';
 
 class MobileCategoryBody extends StatelessWidget {
   const MobileCategoryBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column();
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Column(
+        children: [SortBySection()],
+      ),
+    );
   }
 }
