@@ -11,6 +11,10 @@ class RunWayFashion extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      theme: ThemeData.light().copyWith(
+          appBarTheme: AppBarTheme(
+              surfaceTintColor: Colors.transparent, backgroundColor: Colors.transparent),
+          scaffoldBackgroundColor: Colors.white),
       debugShowCheckedModeBanner: false,
       routerConfig: AppRouter.router,
     );

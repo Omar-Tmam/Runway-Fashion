@@ -7,35 +7,34 @@ class CategoriesGridView extends StatelessWidget {
   const CategoriesGridView({super.key});
   static final List<MenModel> models = [
     MenModel(
-        image: Assets.imagesCategory1,
-        price: '30\$',
-        icon: Assets.imagesHeart,
-        name: 'Gray coat and white T-shirt'),
+      image: Assets.imagesCategory1,
+      price: '30\$',
+      name: 'Gray coat and white T-shirt',
+    ),
     MenModel(
-        image: Assets.imagesCategory2,
-        price: '35\$',
-        icon: Assets.imagesHeart,
-        name: 'Lightweight Men\'s Puffer Jacket'),
+      image: Assets.imagesCategory2,
+      price: '35\$',
+      name: 'Lightweight Men\'s Puffer Jacket',
+    ),
     MenModel(
-        image: Assets.imagesCategory3,
-        price: '25\$',
-        icon: Assets.imagesHeart,
-        name: 'Top man white'),
+      image: Assets.imagesCategory3,
+      price: '25\$',
+      name: 'Top man white',
+    ),
     MenModel(
         image: Assets.imagesCategory4,
         price: '20\$',
-        icon: Assets.imagesHeart,
         name: 'Classic Tailored Fit Men\'s Dress Shirt'),
     MenModel(
-        image: Assets.imagesCategory5,
-        price: '30 \$',
-        icon: Assets.imagesHeart,
-        name: 'Deep gray essential regular'),
+      image: Assets.imagesCategory5,
+      price: '30 \$',
+      name: 'Deep gray essential regular',
+    ),
     MenModel(
-        image: Assets.imagesCategory6,
-        price: '40\$',
-        icon: Assets.imagesHeart,
-        name: 'Top man black with Trouser'),
+      image: Assets.imagesCategory6,
+      price: '40\$',
+      name: 'Top man black with Trouser',
+    ),
   ];
 
   @override
@@ -44,16 +43,13 @@ class CategoriesGridView extends StatelessWidget {
       child: GridView.builder(
         itemCount: models.length,
         gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-          mainAxisExtent: 300,
-          crossAxisSpacing: 14,
+          crossAxisSpacing: 8,
+          childAspectRatio: 200 / 370,
           maxCrossAxisExtent: 300,
         ),
         itemBuilder: (context, index) {
           return CategoryItem(
-            image: models[index].image,
-            name: models[index].name,
-            price: models[index].price,
-            icon: models[index].icon,
+            menModel: models[index],
           );
         },
       ),
