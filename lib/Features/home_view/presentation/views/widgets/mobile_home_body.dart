@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
+import 'package:runway_app/Core/utils/app_router.dart';
 import 'package:runway_app/Core/utils/app_styles.dart';
 import 'package:runway_app/Core/utils/assets.dart';
 import 'package:runway_app/Features/home_view/data/models/category_model.dart';
@@ -56,9 +58,12 @@ class Categories extends StatelessWidget {
                       padding: const EdgeInsets.all(8.0),
                       child: Column(
                         children: [
-                          Image.asset(
-                            categories[index].image,
-                            width: 75,
+                          GestureDetector(
+                            onTap: () => context.push(AppRouter.kCategoryView),
+                            child: Image.asset(
+                              categories[index].image,
+                              width: 75,
+                            ),
                           ),
                           Gap(10),
                           Text(
