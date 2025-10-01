@@ -2,6 +2,8 @@
 class Assets {
   Assets._();
   
+  static const String imagesArrowLeft = "assets/images/arrow-left.svg";
+
   static const String imagesBag = "assets/images/bag.svg";
 
   static const String imagesBell = "assets/images/bell.svg";
@@ -26,7 +28,11 @@ class Assets {
 
   static const String imagesHouse = "assets/images/house.svg";
 
+  static const String imagesIonGridOutline = "assets/images/ion_grid-outline.svg";
+
   static const String imagesKids = "assets/images/kids.png";
+
+  static const String imagesLucideSettings2 = "assets/images/lucide_settings-2.svg";
 
   static const String imagesMen = "assets/images/men.png";
 
@@ -37,6 +43,8 @@ class Assets {
   static const String imagesRectangle = "assets/images/Rectangle.svg";
 
   static const String imagesRunway = "assets/images/Runway.svg";
+
+  static const String imagesSolarUsersGroupRoundedOutline = "assets/images/solar_users-group-rounded-outline.svg";
 
   static const String imagesVideo = "assets/images/video.mp4";
 
