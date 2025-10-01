@@ -17,7 +17,7 @@ class CategoryItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => context.push(AppRouter.kDetailsView),
+      onTap: () => context.push(AppRouter.kDetailsView,extra: menModel),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
