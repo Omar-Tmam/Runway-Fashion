@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:runway_app/Core/cubit/theme_cubit.dart';
 import 'package:runway_app/Core/utils/app_router.dart';
+import 'package:runway_app/Core/utils/app_theme.dart';
 
 void main() {
   debugPaintSizeEnabled = false;
@@ -20,20 +21,8 @@ class RunWayFashion extends StatelessWidget {
         builder: (context, state) {
           return MaterialApp.router(
             themeMode: state,
-            darkTheme: ThemeData.dark().copyWith(
-              scaffoldBackgroundColor: Colors.black,
-              appBarTheme: AppBarTheme(
-                surfaceTintColor: Colors.transparent,
-                backgroundColor: Colors.transparent,
-              ),
-            ),
-            theme: ThemeData.light().copyWith(
-              appBarTheme: AppBarTheme(
-                surfaceTintColor: Colors.transparent,
-                backgroundColor: Colors.transparent,
-              ),
-              scaffoldBackgroundColor: Colors.white,
-            ),
+            darkTheme: AppTheme.darkTheme,
+            theme: AppTheme.lightTheme,
             debugShowCheckedModeBanner: false,
             routerConfig: AppRouter.router,
           );
