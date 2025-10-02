@@ -47,8 +47,10 @@ class _CustomDragBottomSheetState extends State<CustomDragBottomSheet> {
       snapAnimationDuration: const Duration(milliseconds: 300),
       builder: (context, scrollController) {
         return Container(
-          decoration: const BoxDecoration(
-            color: Colors.white,
+          decoration: BoxDecoration(
+            color: Theme.of(context).brightness == Brightness.dark
+                ? Colors.black54
+                : Colors.white54,
             borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
             boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 12, offset: Offset(0, -4))],
           ),

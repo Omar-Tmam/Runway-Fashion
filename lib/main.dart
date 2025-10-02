@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:runway_app/Core/cubit/theme_cubit.dart';
 import 'package:runway_app/Core/utils/app_router.dart';
 
 void main() {
@@ -12,18 +14,25 @@ class RunWayFashion extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      themeMode: ThemeMode.dark,
-      darkTheme: ThemeData.dark().copyWith(),
-      theme: ThemeData.light().copyWith(
-        appBarTheme: AppBarTheme(
-          surfaceTintColor: Colors.transparent,
-          backgroundColor: Colors.transparent,
-        ),
-        scaffoldBackgroundColor: Colors.white,
+    return BlocProvider(
+      create: (context) => ThemeCubit(),
+      child: BlocBuilder<ThemeCubit, ThemeMode>(
+        builder: (context, state) {
+          return MaterialApp.router(
+              themeMode:state ,
+              darkTheme: ThemeData.dark().copyWith(),
+              theme: ThemeData.light().copyWith(
+                appBarTheme: AppBarTheme(
+                  surfaceTintColor: Colors.transparent,
+                  backgroundColor: Colors.transparent,
+                ),
+                scaffoldBackgroundColor: Colors.white,
+              ),
+              debugShowCheckedModeBanner: false,
+              routerConfig: AppRouter.router,
+            );
+        },
       ),
-      debugShowCheckedModeBanner: false,
-      routerConfig: AppRouter.router,
     );
   }
 }
