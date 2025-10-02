@@ -40,7 +40,6 @@ abstract class AppStyles {
 
   static TextStyle styleBold16(BuildContext context) {
     return TextStyle(
-      color: const Color(0xFF5A5555),
       fontSize: getResponsiveFontSize(context, fontSize: 24),
       fontFamily: 'Ubuntu',
       fontWeight: FontWeight.w700,
@@ -49,7 +48,6 @@ abstract class AppStyles {
 
   static TextStyle styleBold20(BuildContext context) {
     return TextStyle(
-      color: const Color(0xFF5A5555),
       fontSize: getResponsiveFontSize(context, fontSize: 28),
       fontFamily: 'Ubuntu',
       fontWeight: FontWeight.w700,

@@ -13,9 +13,10 @@ class MobileHomeBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
+      fit: StackFit.expand,
       children: [
         CustomVideoPlayer(),
-        Positioned(bottom: 0, right: 0, left: 0, child: Categories())
+        Positioned(bottom: 0, right: 0, left: 0, child: Categories()),
       ],
     );
   }
@@ -35,18 +36,16 @@ class Categories extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 240,
-      decoration: BoxDecoration(color: Colors.white),
+      decoration: BoxDecoration(
+        color: Theme.of(context).brightness == Brightness.dark ? Colors.black54 : Colors.white54,
+      ),
       child: Padding(
         padding: const EdgeInsets.only(left: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Gap(10),
-            Text(
-              'Categories',
-              style: AppStyles.styleMedium14(context),
-            ),
+            Text('Categories', style: AppStyles.styleMedium14(context)),
             Gap(10),
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -60,23 +59,17 @@ class Categories extends StatelessWidget {
                         children: [
                           GestureDetector(
                             onTap: () => context.push(AppRouter.kCategoryView),
-                            child: Image.asset(
-                              categories[index].image,
-                              width: 75,
-                            ),
+                            child: Image.asset(categories[index].image, width: 75),
                           ),
                           Gap(10),
-                          Text(
-                            categories[index].name,
-                            style: AppStyles.styleMedium14(context),
-                          )
+                          Text(categories[index].name, style: AppStyles.styleMedium14(context)),
                         ],
                       ),
                     );
                   }),
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),

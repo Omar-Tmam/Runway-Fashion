@@ -18,11 +18,9 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           widget,
-          Text(
-            title,
-            style: AppStyles.styleBold20(context),
-          ),
+          Text(title, style: AppStyles.styleBold20(context)),
           SvgPicture.asset(
+            color: Theme.of(context).brightness == Brightness.dark ? Colors.white : Colors.black,
             suffix,
             width: 24,
           ),

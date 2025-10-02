@@ -12,10 +12,16 @@ class MobileCategory extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppbar(
-          widget: GestureDetector(
-              onTap: () => context.pop(), child: SvgPicture.asset(Assets.imagesArrowLeft)),
-          suffix: Assets.imagesBag,
-          title: 'Men'),
+        widget: GestureDetector(
+          onTap: () => context.pop(),
+          child: SvgPicture.asset(
+            Assets.imagesArrowLeft,
+            color: Theme.of(context).brightness == Brightness.dark ? Colors.white : Colors.black,
+          ),
+        ),
+        suffix: Assets.imagesBag,
+        title: 'Men',
+      ),
       body: MobileCategoryBody(),
     );
   }

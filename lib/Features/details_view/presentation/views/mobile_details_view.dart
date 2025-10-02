@@ -14,10 +14,16 @@ class MobileDetailsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppbar(
-          widget:
-              InkWell(onTap: () => context.pop(), child: SvgPicture.asset(Assets.imagesArrowLeft)),
-          suffix: Assets.imagesBag,
-          title: 'Men'),
+        widget: InkWell(
+          onTap: () => context.pop(),
+          child: SvgPicture.asset(
+            Assets.imagesArrowLeft,
+            color: Theme.of(context).brightness == Brightness.dark ? Colors.white : Colors.black,
+          ),
+        ),
+        suffix: Assets.imagesBag,
+        title: 'Men',
+      ),
       body: MobileDetailsBody(menModel: menModel),
     );
   }

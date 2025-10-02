@@ -10,8 +10,30 @@ class MobileHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppbar(widget: SvgPicture.asset(Assets.imagesMenu), suffix: Assets.imagesBell, title: 'Runway'),
+      appBar: CustomAppbar(
+        widget: SvgPicture.asset(
+          Assets.imagesMenu,
+          color: Theme.of(context).brightness == Brightness.dark ? Colors.white : Colors.black,
+        ),
+        suffix: Assets.imagesBell,
+        title: 'Runway',
+      ),
       body: MobileHomeBody(),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: Theme.of(context).brightness == Brightness.dark
+            ? Colors.white
+            : Colors.black,
+        unselectedItemColor: Colors.grey,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.favorite), label: "Likes"),
+          BottomNavigationBarItem(icon: Icon(Icons.shopping_bag_rounded), label: "bag"),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "proifile"),
+        ],
+      ),
     );
   }
 }
