@@ -19,18 +19,24 @@ class RunWayFashion extends StatelessWidget {
       child: BlocBuilder<ThemeCubit, ThemeMode>(
         builder: (context, state) {
           return MaterialApp.router(
-              themeMode:state ,
-              darkTheme: ThemeData.dark().copyWith(),
-              theme: ThemeData.light().copyWith(
-                appBarTheme: AppBarTheme(
-                  surfaceTintColor: Colors.transparent,
-                  backgroundColor: Colors.transparent,
-                ),
-                scaffoldBackgroundColor: Colors.white,
+            themeMode: state,
+            darkTheme: ThemeData.dark().copyWith(
+              scaffoldBackgroundColor: Colors.black,
+              appBarTheme: AppBarTheme(
+                surfaceTintColor: Colors.transparent,
+                backgroundColor: Colors.transparent,
               ),
-              debugShowCheckedModeBanner: false,
-              routerConfig: AppRouter.router,
-            );
+            ),
+            theme: ThemeData.light().copyWith(
+              appBarTheme: AppBarTheme(
+                surfaceTintColor: Colors.transparent,
+                backgroundColor: Colors.transparent,
+              ),
+              scaffoldBackgroundColor: Colors.white,
+            ),
+            debugShowCheckedModeBanner: false,
+            routerConfig: AppRouter.router,
+          );
         },
       ),
     );
