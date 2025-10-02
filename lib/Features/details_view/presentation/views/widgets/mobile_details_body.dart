@@ -17,14 +17,16 @@ class MobileDetailsBody extends StatelessWidget {
             tag: menModel.image,
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 14),
-              child: Image.asset(
-                fit: BoxFit.fitHeight,
-                height: 250,
-                menModel.image,
-              ),
+              child: Image.asset(fit: BoxFit.fitHeight, height: 250, menModel.image),
             ),
           ),
-          CustomDragBottomSheet(menModel: menModel),
+
+          Positioned.fill(
+            child: AnimatedSwitcher(
+              duration: Duration(milliseconds: 3000),
+              child: CustomDragBottomSheet(menModel: menModel),
+            ),
+          ),
         ],
       ),
     );

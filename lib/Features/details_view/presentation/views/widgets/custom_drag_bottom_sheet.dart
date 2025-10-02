@@ -7,31 +7,50 @@ import 'package:runway_app/Features/details_view/presentation/views/widgets/expa
 import 'package:runway_app/Features/details_view/presentation/views/widgets/free_delivery_return_section.dart';
 import 'package:runway_app/Features/details_view/presentation/views/widgets/name_price_fav_section.dart';
 
-class CustomDragBottomSheet extends StatelessWidget {
-  const CustomDragBottomSheet({
-    super.key,
-    required this.menModel,
-  });
+class CustomDragBottomSheet extends StatefulWidget {
+  const CustomDragBottomSheet({super.key, required this.menModel});
 
   final MenModel menModel;
 
   @override
+  State<CustomDragBottomSheet> createState() => _CustomDragBottomSheetState();
+}
+
+class _CustomDragBottomSheetState extends State<CustomDragBottomSheet> {
+  final DraggableScrollableController _dragController = DraggableScrollableController();
+  late double minSize;
+  @override
+  void initState() {
+    super.initState();
+    minSize = 0;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Future.delayed(const Duration(milliseconds: 300), () {
+        _dragController.animateTo(
+          0.5,
+          duration: const Duration(milliseconds: 500),
+          curve: Curves.easeInOut,
+        );
+        setState(() {
+          minSize = 0.15;
+        });
+      });
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return DraggableScrollableSheet(
-      initialChildSize: 0.35,
+      controller: _dragController,
+      minChildSize: minSize,
+      initialChildSize: minSize,
       maxChildSize: 0.9,
+      snapAnimationDuration: const Duration(milliseconds: 300),
       builder: (context, scrollController) {
         return Container(
           decoration: const BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black26,
-                blurRadius: 12,
-                offset: Offset(0, -4),
-              ),
-            ],
+            boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 12, offset: Offset(0, -4))],
           ),
           child: SingleChildScrollView(
             controller: scrollController,
@@ -40,7 +59,6 @@ class CustomDragBottomSheet extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  /// الخط اللي فوق
                   Center(
                     child: Container(
                       height: 5,
@@ -52,28 +70,15 @@ class CustomDragBottomSheet extends StatelessWidget {
                       ),
                     ),
                   ),
-
-                  /// الاسم + السعر + المفضلة
-                  NamePriceFavSection(menModel: menModel),
-
-                  Gap(20),
-
-                  /// Select color & size
-                  ColorSizeSection(),
-
-                  Gap(20),
-
-                  /// زرار Add to Bag
-                  AddToCartButton(),
-
-                  Gap(20),
-
-                  /// Free delivery & Free return
-
-                  FreedeliveryReturn(),
-
+                  NamePriceFavSection(menModel: widget.menModel),
+                  const Gap(20),
+                  const ColorSizeSection(),
+                  const Gap(20),
+                  const AddToCartButton(),
+                  const Gap(20),
+                  const FreedeliveryReturn(),
                   const Divider(height: 30),
-                  ExpandableSections(),
+                  const ExpandableSections(),
                 ],
               ),
             ),
