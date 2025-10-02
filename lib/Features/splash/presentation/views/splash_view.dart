@@ -16,7 +16,7 @@ class SplashView extends StatefulWidget {
 class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
-    Future.delayed(Duration(milliseconds: 1500), () {
+    Future.delayed(Duration(milliseconds: 1000), () {
       context.pushReplacement(AppRouter.kHomeView);
     });
     super.initState();
@@ -29,16 +29,9 @@ class _SplashViewState extends State<SplashView> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset(
-              Assets.imagesRunway,
-              width: 188,
-            ),
+            SvgPicture.asset(Assets.imagesRunway, width: 188),
             Gap(6),
-            LineAnimation(
-                child: SvgPicture.asset(
-              Assets.imagesRectangle,
-              width: 189,
-            ))
+            LineAnimation(child: SvgPicture.asset(Assets.imagesUnderLine, width: 189)),
           ],
         ),
       ),
